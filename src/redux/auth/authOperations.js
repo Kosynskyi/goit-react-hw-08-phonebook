@@ -30,6 +30,7 @@ export const logIn = createAsyncThunk(
   async (credentials, { rejectWithValue }) => {
     try {
       const { data } = await axios.post('/users/login', credentials);
+      token.set(data.token);
       return data;
     } catch (error) {
       return rejectWithValue(error.message);
@@ -41,7 +42,7 @@ export const logOut = createAsyncThunk(
   'auth/logout',
   async (_, { rejectWithValue }) => {
     try {
-      await axios.post('/users/logout'); //нічого не повертаємо, тому без const
+      await axios.post('/users/logout');
       token.unset();
     } catch (error) {
       return rejectWithValue(error.message);
@@ -53,7 +54,8 @@ export const fetchCurrentUser = createAsyncThunk(
   'auth/refresh',
   async (_, { rejectWithValue, getState }) => {
     const tokenLocalStorage = getState().auth.token;
-    if (!token) {
+    console.log(tokenLocalStorage);
+    if (!tokenLocalStorage) {
       return rejectWithValue();
     }
     token.set(tokenLocalStorage);
