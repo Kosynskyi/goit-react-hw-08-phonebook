@@ -1,14 +1,14 @@
-import { Link } from 'react-router-dom';
+import { List, Item, LinkStyled } from './AuthNav.styled';
 
 export const AuthNav = () => {
   return (
-    <ul>
-      <li>
-        <Link to="/register">Registration</Link>
-      </li>
-      <li>
-        <Link to="/login">Login</Link>
-      </li>
-    </ul>
+    <List>
+      <Item>
+        <LinkStyled to="/register">Registration</LinkStyled>
+      </Item>
+      <Item>
+        <LinkStyled to="/login">Login</LinkStyled>
+      </Item>
+    </List>
   );
 };

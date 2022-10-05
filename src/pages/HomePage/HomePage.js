@@ -1,3 +1,5 @@
+import { MainTitle } from './HomePage.styled';
+
 export const HomePage = () => {
-  return <h1>Welcome! </h1>;
+  return <MainTitle>Welcome in my simple App! </MainTitle>;
 };

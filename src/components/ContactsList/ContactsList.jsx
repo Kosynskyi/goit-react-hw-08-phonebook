@@ -1,26 +1,46 @@
 import PropTypes from 'prop-types';
-// import DeleteIcon from '@mui/icons-material/Delete';
+import DeleteIcon from '@mui/icons-material/Delete';
+import * as React from 'react';
+import { Button, ListItem, Divider, List, Typography } from '@mui/material';
 import { useSelector, useDispatch } from 'react-redux';
 import { getContacts } from '../../redux/contacts/contacts-selector';
 import { deleteContact } from '../../redux/contacts/contactsOperations';
 import { getFilteredContacts } from '../../redux/filter/filter-selector';
-import { Item, List, Text, Button } from './ContactsList.styled';
 
 const ContactItem = ({ name, number, id }) => {
   const dispatch = useDispatch();
 
   return (
-    <Item>
-      <Text>{name}:</Text>
-      <Text>{number}</Text>
-      <Button type="button" onClick={() => dispatch(deleteContact(id))}>
-        Delete
-      </Button>
-
-      {/* <Button variant="outlined" startIcon={<DeleteIcon />}>
-        Delete
-      </Button> */}
-    </Item>
+    <>
+      <ListItem style={{ width: '900px' }}>
+        <Typography
+          variant="h5"
+          gutterBottom
+          component="p"
+          sx={{ mr: '30px', width: '250px' }}
+        >
+          {name}:
+        </Typography>
+        <Typography
+          variant="h5"
+          gutterBottom
+          component="p"
+          sx={{ mr: '30px', width: '150px' }}
+        >
+          {number}
+        </Typography>
+        <Button
+          variant="outlined"
+          startIcon={<DeleteIcon />}
+          type="button"
+          onClick={() => dispatch(deleteContact(id))}
+          sx={{ width: '200px' }}
+        >
+          Delete
+        </Button>
+      </ListItem>
+      <Divider variant="fullWidth" />
+    </>
   );
 };
 
@@ -34,7 +54,7 @@ export const ContactsList = () => {
   };
 
   return (
-    <List>
+    <List sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.red' }}>
       {filterContacts().map(({ id, name, number }) => (
         <ContactItem key={id} id={id} name={name} number={number} />
       ))}

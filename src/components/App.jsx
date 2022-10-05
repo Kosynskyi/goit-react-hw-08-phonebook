@@ -26,7 +26,7 @@ export const App = () => {
   }, [dispatch]);
 
   return (
-    <>
+    <div style={{ backgroundColor: '#dce765ae' }}>
       {!fetchingCurrent && (
         <Routes>
           <Route path="/" element={<Layout />}>
@@ -65,6 +65,6 @@ export const App = () => {
           </Route>
         </Routes>
       )}
-    </>
+    </div>
   );
 };
