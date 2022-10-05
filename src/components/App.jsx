@@ -1,12 +1,12 @@
 // ================GLOBAL IMPORTS======================
 import { useEffect } from 'react';
-import { Routes, Route } from 'react-router-dom';
+// import { Routes, Route } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 // ==================PAGES=============================
-import { HomePage } from '../pages/HomePage';
+// import { HomePage } from '../pages/HomePage';
 import { RegisterPage } from '../pages/RegisterPage';
 import { LoginPage } from '../pages/LoginPage';
-import { ContactsPage } from '../pages/ContactsPage';
+// import { ContactsPage } from '../pages/ContactsPage';
 
 // import { fetchContacts } from '../redux/contacts/contactsOperations';
 // import { Form } from './Form';
@@ -47,7 +47,7 @@ export const App = () => {
       <Section>
         <Container>
           <Header />
-          {isLoggedIn && <UserMenu />}
+          {isLoggedIn && name && <UserMenu />}
 
           <RegisterPage />
           <LoginPage />
