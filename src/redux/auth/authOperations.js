@@ -20,7 +20,11 @@ export const register = createAsyncThunk(
       token.set(data.token);
       return data;
     } catch (error) {
-      return rejectWithValue(error.message);
+      return rejectWithValue(
+        alert(
+          'Rejected! Perhaps you entered incorrect data or a user with such data is already registered'
+        )
+      );
     }
   }
 );
@@ -33,7 +37,9 @@ export const logIn = createAsyncThunk(
       token.set(data.token);
       return data;
     } catch (error) {
-      return rejectWithValue(error.message);
+      return rejectWithValue(
+        alert('Invalid data entered. Please repeat again')
+      );
     }
   }
 );

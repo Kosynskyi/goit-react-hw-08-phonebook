@@ -7,6 +7,7 @@ import { HomePage } from '../pages/HomePage';
 import { RegisterPage } from '../pages/RegisterPage';
 import { LoginPage } from '../pages/LoginPage';
 import { ContactsPage } from '../pages/ContactsPage';
+import { NotFoundPage } from '../pages/NotFoundPage';
 
 // ====================COMPONENTS=============================
 import { Layout } from './Layout';
@@ -62,6 +63,7 @@ export const App = () => {
                 </PublicRoute>
               }
             />
+            <Route path="*" element={<NotFoundPage />} />
           </Route>
         </Routes>
       )}

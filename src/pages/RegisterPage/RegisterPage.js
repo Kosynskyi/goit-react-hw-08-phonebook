@@ -29,6 +29,7 @@ export const RegisterPage = () => {
   const handleSubmit = event => {
     event.preventDefault();
     dispatch(register({ name, email, password }));
+    console.log('send form');
     setName('');
     setEmail('');
     setPassword('');
