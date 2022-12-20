@@ -1,5 +1,6 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { getUserName } from '../../redux/auth/authSelectors';
+import { RiLogoutBoxLine } from 'react-icons/ri';
 import { logOut } from 'redux/auth/authOperations';
 import { Wrapper, Text, Span, Button } from './UserMenu.styled';
 
@@ -13,7 +14,7 @@ export const UserMenu = () => {
         Welcome, <Span>{name}</Span>
       </Text>
       <Button type="button" onClick={() => dispatch(logOut())}>
-        Log out
+        <RiLogoutBoxLine size={35} />
       </Button>
     </Wrapper>
   );

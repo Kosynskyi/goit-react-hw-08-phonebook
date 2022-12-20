@@ -1,6 +1,7 @@
-// import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { getIsLoggedIn } from '../../redux/auth/authSelectors';
+import { FaHome } from 'react-icons/fa';
+import { IoMdContacts } from 'react-icons/io';
 
 import { List, Item, StyledLink } from './Navigation.styled';
 
@@ -11,12 +12,14 @@ export const Navigation = () => {
       <List>
         <Item>
           <StyledLink to="/" end>
-            Home
+            <FaHome size={35} />
           </StyledLink>
         </Item>
         {isLoggedIn && (
           <Item>
-            <StyledLink to="/contacts">Contacts</StyledLink>
+            <StyledLink to="/contacts">
+              <IoMdContacts size={35} />
+            </StyledLink>
           </Item>
         )}
       </List>

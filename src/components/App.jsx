@@ -27,7 +27,7 @@ export const App = () => {
   }, [dispatch]);
 
   return (
-    <div style={{ backgroundColor: '#dce765ae' }}>
+    <div>
       {!fetchingCurrent && (
         <Routes>
           <Route path="/" element={<Layout />}>

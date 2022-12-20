@@ -22,19 +22,63 @@ export const Item = styled.li`
 `;
 
 export const LinkStyled = styled(Link)`
-  display: block;
-  color: black;
-  background-color: rgba(1, 157, 255, 1);
-  text-align: center;
+  min-width: 150px;
+  padding: ${p => p.theme.space[3]}px;
+  padding-top: ${p => p.theme.space[5]}px;
+  padding-bottom: ${p => p.theme.space[5]}px;
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  font-size: ${p => p.theme.fontSizes.m};
+  font-weight: ${p => p.theme.fontWeights.bold};
+  letter-spacing: ${p => p.theme.space[3]}px;
+  border-radius: ${p => p.theme.radii.awesome};
+  border: ${p => p.theme.borders.none};
+  color: ${p => p.theme.colors.white};
+  transition: 500ms;
   text-decoration: none;
-  padding: 10px;
-  margin-right: 20px;
-  border-radius: 6px;
-  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-  &:last-child {
-    margin-right: 0;
+  background-color: #141414;
+
+  &.active {
+    color: ${p => p.theme.colors.red};
+    background-color: ${p => p.theme.colors.black};
+    box-shadow: 0 0 50px #8500ff;
+    -webkit-box-reflect: below 10px linear-gradient(transparent, #00000045);
   }
   &:hover {
-    transform: scale(1.2);
+    background-color: ${p => p.theme.colors.black};
+    box-shadow: 0 0 50px #8500ff;
+    -webkit-box-reflect: below 10px linear-gradient(transparent, #00000045);
+  }
+  &::after {
+    content: '';
+    width: 25px;
+    height: 25px;
+    position: absolute;
+    border-left: 2px solid #8500ff;
+    border-top: 2px solid #8500ff;
+    top: 0;
+    left: 0;
+    border-radius: 6px 0 0 0;
+    transition: 500ms;
+  }
+  &::before {
+    content: '';
+    width: 25px;
+    height: 25px;
+    position: absolute;
+    border-right: 2px solid #8500ff;
+    border-bottom: 2px solid #8500ff;
+    right: 0;
+    bottom: 0;
+    border-radius: 0 0 6px 0;
+    transition: 500ms;
+  }
+  &:hover::after,
+  &:hover::before {
+    width: calc(100% - 2px);
+    height: calc(100% - 2px);
+    border-radius: ${p => p.theme.radii.normal};
   }
 `;

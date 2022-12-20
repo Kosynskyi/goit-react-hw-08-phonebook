@@ -26,6 +26,11 @@ export const Button = styled.button`
   width: 300px;
   padding: 10px;
   font-size: 20px;
-  border-radius: 3px;
+  border-radius: 6px;
   cursor: pointer;
+  transition: 500ms;
+
+  &:hover {
+    transform: scale(1.1);
+  }
 `;
