@@ -1,11 +1,15 @@
-import { Link } from 'react-router-dom';
+import { FcHome } from 'react-icons/fc';
+import { Text, StyledBackHome, Wrapper } from './NotFoundPage.styled';
 
 export const NotFoundPage = () => {
   return (
-    <div>
-      <p>
-        Page was not found, welcome to <Link to="/">Home page</Link>!
-      </p>
-    </div>
+    <Wrapper>
+      <Text>404</Text>
+      <Text>page not found :(</Text>
+      <StyledBackHome to="/">
+        <FcHome />
+        Back to Home
+      </StyledBackHome>
+    </Wrapper>
   );
 };
